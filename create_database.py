@@ -9,6 +9,8 @@ import openai
 from dotenv import load_dotenv
 import os
 import shutil
+import nltk
+
 
 # Load environment variables. Assumes that project contains .env file with API keys
 load_dotenv()
@@ -39,8 +41,8 @@ def load_documents():
 
 def split_text(documents: list[Document]):
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=300,
-        chunk_overlap=100,
+        chunk_size=1000,
+        chunk_overlap=500,
         length_function=len,
         add_start_index=True,
     )
